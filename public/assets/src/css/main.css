@@ -1,0 +1,11 @@
+/* COMPONENTES */
+@import url(./components/background.css);
+@import url(./components/loading.css);
+
+/* GLOBAL */
+@import url(./global/reset.css);
+@import url(./global/responsive.css);
+
+/* PAGINAS */
+@import url(./views/casal.css);
+@import url(./views/index.css);
