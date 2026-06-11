@@ -289,10 +289,20 @@ body {
 }
 
 .slides {
+    --slide-gap: 30px;
+    --slide-gap-half: 15px;
     display: flex;
-    gap: 30px;
+    gap: var(--slide-gap);
     width: max-content;
-    animation: esteira 15s linear infinite;
+    will-change: transform;
+}
+
+.slides.is-ready {
+    animation: esteira 28s linear infinite;
+}
+
+.carrossel:hover .slides.is-ready {
+    animation-play-state: paused;
 }
 
 @keyframes esteira {
@@ -301,7 +311,7 @@ body {
     }
 
     to {
-        transform: translateX(-50%);
+        transform: translateX(calc(-50% - var(--slide-gap-half)));
     }
 }
 

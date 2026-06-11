@@ -1,30 +1,13 @@
-const elemImagem = document.querySelectorAll(".slides img");
-const tamanhoLista = elemImagem.length - 1;
+const slides = document.querySelector(".slides");
 
-let index = 0;
+if (slides) {
+  const polaroids = Array.from(slides.children);
 
-elemBtnleft.addEventListener("click", () => {
-  index--;
+  polaroids.forEach((polaroid) => {
+    const clone = polaroid.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    slides.appendChild(clone);
+  });
 
-  if (index < 0) index = tamanhoLista;
-  atualizarCaarrossel();
-});
-
-elemBtnright.addEventListener("click", () => {
-  incrementarIndex();
-  atualizarCaarrossel();
-});
-
-const incrementarIndex = () => {
-  index++;
-  if (index > tamanhoLista) index = 0;
-};
-
-const atualizarCaarrossel = () => {
-  elemSlides.style.transform = `translateX(-${index * 100}%)`;
-};
-
-setInterval(() => {
-  incrementarIndex();
-  atualizarCaarrossel();
-}, 3000);
+  slides.classList.add("is-ready");
+}
